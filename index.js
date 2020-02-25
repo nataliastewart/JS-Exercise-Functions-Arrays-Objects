@@ -190,13 +190,12 @@ function getCarInfoById(inventory, id) {
       var carModel = inventory[i].car_model;
     }
   }
-  console.log(carMake)
-  console.log(carModel)
-  console.log(`This is a ${carMake} ${carModel}`)
+  console.log(carMake);
+  console.log(carModel);
+  console.log(`This is a ${carMake} ${carModel}`);
 
   return `This is a ${carMake} ${carModel}`;
 }
-
 
 /**
  * ### Challenge `sortCarInventory`
@@ -206,8 +205,21 @@ function getCarInfoById(inventory, id) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
  */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  let arr = [...inventory];
+  const sortModel = arr.sort(function(a, b) {
+    var nameA = a.car_model;
+    var nameB = b.car_model;
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return sortModel;
 }
 
 /**
