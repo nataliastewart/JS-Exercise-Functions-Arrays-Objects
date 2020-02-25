@@ -38,11 +38,13 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
  */
-const makePersonObject = {
-  id: 10,
-  name: "Natalia",
-  email: "natalia@natalia.com"
-};
+function makePersonObject(paramId, paramName, paramEmail) {
+  return {
+    id: paramId,
+    name: paramName,
+    email: paramEmail
+  };
+}
 
 // console.log(makePersonObject);
 
@@ -59,11 +61,9 @@ const makePersonObject = {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
  */
-function getName(name) {
-  const hello = "Hello, my name is " + name;
-  return hello;
+function getName(object) {
+  return "Hello, my name is " + object.name;
 }
-// console.log(getName("Natalia"));
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -78,15 +78,21 @@ function getName(name) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
  */
-function makeSmartPerson(name) {
- const smart = {
-   name: "Luana";
- }
- return num1 + num2;
-  
-}
-console.log(makeSmartPerson(smart));
+function makeSmartPerson(nameParam) {
+  const objectSmart = {
+    name: nameParam,
+    sum: function(a, b) {
+      return a + b;
+    },
+    speak: function() {
+      return `Hello, my name is ${nameParam}`;
+    }
+  };
 
+  return objectSmart;
+}
+
+console.log(makeSmartPerson("Taja").speak());
 /*
 // ⭐️ Example Test Data ⭐️
 
@@ -249,9 +255,9 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
  */
-// const sum = null; // code here!
-// const addFive = null; // code here!
-// const argTimesTwo = null; // code here!
+const sum = null; // code here!
+const addFive = null; // code here!
+const argTimesTwo = null; // code here!
 
 /**
  * ### Challenge `carMaker`
